@@ -1,0 +1,549 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* Reset margin, padding, dan set box-sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Atur body untuk flex layout dengan kolom vertikal */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* HEADER */
+header {
+    background: white;
+    width: 100%;
+    height: 80px;
+    position: fixed;
+    max-width: 800px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px;
+    z-index: 1;
+    /* Tetapkan elemen header di atas elemen lain */
+}
+
+/* Animasi logo muncul */
+.logo {
+    animation: showUp 0.7s forwards;
+    animation-delay: 0.3s;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.logo span {
+    color: #1BBCB5;
+    /* Warna hijau untuk teks logo */
+}
+
+/* List menu navigasi */
+.list-menu {
+    display: flex;
+    gap: 25px;
+    /* Spasi antar menu */
+}
+
+/* Gaya untuk setiap item menu */
+.list-menu li {
+    list-style: none;
+    /* Hilangkan bullet point */
+
+    /* Animasi untuk tiap item */
+    animation: showUp 0.7s forwards;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+/* Animasi bertahap untuk setiap item menu */
+.list-menu li:nth-child(1) {
+    animation-delay: 0.5s;
+}
+
+.list-menu li:nth-child(2) {
+    animation-delay: 0.7s;
+}
+
+.list-menu li:nth-child(3) {
+    animation-delay: 0.9s;
+}
+
+.list-menu li:nth-child(4) {
+    animation-delay: 1.1s;
+}
+
+/* Gaya untuk link dalam menu */
+.list-menu li a {
+    text-decoration: none;
+    font-weight: 600;
+    color: black;
+    transition: 0.25s;
+    /* Efek transisi pada hover */
+}
+
+.list-menu li a:hover {
+    color: #1BBCB5;
+    /* Warna pada saat hover */
+}
+
+/* Warna teks aktif */
+.list-menu li .active {
+    color: #1BBCB5;
+}
+
+/* END HEADER */
+
+/* MAIN */
+main {
+    background: white;
+    width: 100%;
+    min-height: 90dvh;
+    max-width: 800px;
+    padding: 0 50px;
+    padding-top: 80px;
+    /* Tambahkan ruang di atas untuk header tetap */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Garis vertikal di sebelah kiri konten */
+main::before {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 0px;
+    background: #1BBCB5;
+    margin-left: -30px;
+
+    /* Animasi tinggi bertahap */
+    animation: showHeight80px 1.5s ease-in-out forwards;
+    animation-delay: 2.5s;
+}
+
+/* Animasi muncul teks sapaan */
+.hello-text {
+    animation: showUp 0.7s forwards;
+    animation-delay: 1s;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+/* Animasi muncul teks nama */
+.name-text {
+    animation: showUp 0.7s forwards;
+    animation-delay: 1.2s;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+/* Teks role dengan animasi switch */
+.role-text {
+    color: #1BBCB5;
+    display: flex;
+    flex-direction: column;
+    height: 40px;
+    margin-top: 4px;
+    overflow: hidden;
+    animation: showUp 0.7s forwards;
+    animation-delay: 1.4s;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+/* Animasi pergantian teks role */
+.role-text span {
+    animation: switchRole 3s ease-in-out alternate infinite;
+}
+
+/* Daftar tombol */
+.list-button {
+    display: flex;
+    gap: 16px;
+    margin-top: 12px;
+}
+
+.list-button :hover {
+    color: #FFA550;
+    /* Warna hover untuk tombol */
+    box-shadow: 4px 4px 10px #efa5b6;
+    /* Efek bayangan hover */
+}
+
+/* Gaya tombol umum */
+.list-button button {
+    padding: 8px 12px;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* Tombol Download CV */
+.list-button .download-cv {
+    border: none;
+    background: #1BBCB5;
+    color: white;
+    box-shadow: 4px 4px 10px #1BBCB5;
+
+    animation: showUp 0.7s forwards;
+    animation-delay: 1.6s;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+/* Tombol Contact Me */
+.list-button .contact-me {
+    background: white;
+    border: solid 2px #1BBCB5;
+
+    animation: showUp 0.7s forwards;
+    animation-delay: 1.8s;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+/* Bagian gambar di kanan */
+.right {
+    position: relative;
+}
+
+/* Gambar latar belakang (blob) */
+.blob-img {
+    width: 450px;
+    animation: showFade 0.7s forwards, showRight 2s ease forwards, bouncing 3s ease-in-out alternate-reverse infinite;
+    animation-delay: 2.2s;
+    opacity: 0;
+    margin-left: -20px;
+}
+
+/* Gambar profil (katon) */
+.katon-img {
+    width: 170px;
+    position: absolute;
+    left: 100px;
+    top: 1px;
+    border-radius: 80px;
+    animation: showRight 2s ease forwards, bouncing 3s ease-in-out alternate-reverse infinite;
+    animation-delay: 2.2s;
+    opacity: 0;
+    margin-left: -20px;
+}
+
+#projects {
+    animation: showRight 10s ease forwards, bouncing 4s ease-in-out alternate-reverse infinite;
+    animation-delay: 2.2s;
+    opacity: 0;
+    text-align: center;
+}
+
+#projects h2{
+    background: white;
+    border: solid 2px #1BBCB5;
+    padding: 8px 12px;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    animation: showUp 0.7s forwards;
+    animation-delay: 1.8s;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+#projects h2:hover {
+      color: #FFA550;
+    /* Warna hover untuk tombol */
+    box-shadow: 4px 4px 10px #efa5b6;
+    /* Efek bayangan hover */
+}
+
+.projects-section .wrapper {
+    align-items: center;
+    color: white;
+    justify-content: center;
+    gap: 4rem;
+    width: 80%;
+    height: 100%;
+    margin: 30px auto 0 auto;
+  }
+  
+  .project-card {
+    background: #0d0d0d;
+    border-radius: 1rem;
+    max-width: 450px;
+    animation: showRight 10s ease forwards, bouncing 1s ease-in-out alternate-reverse infinite;
+    animation-delay: 2.2s;
+    opacity: 0;
+    box-shadow: 4px 4px 100px #efa5b6;
+    
+  }
+  
+  .project-image-container {
+    overflow: hidden;
+    width: 100%;
+    border-radius: 10px 10px 0px 0px;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .project-image {
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    height: 100%;
+    transition: 0.2s ease-in-out;
+  }
+  
+  .project-image:hover {
+    transform: scale(1.05);
+  }
+  
+  .project-content {
+    border-radius: 0px 0px 10px 10px;
+    padding: 1.5rem 1rem;
+  
+    display: flex;
+    justify-content: space-between;
+    padding-inline: 3rem;
+  }
+  
+  .project-content>p {
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 30px;
+    overflow: hidden;
+    white-space: pre-wrap;
+  }
+  
+  .check-project {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .check-project a {
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+  }
+  
+  .check-project a:hover {
+    color: #1BBCB5;
+  }
+  
+
+/* FOOTER */
+footer {
+    background: white;
+    width: 100%;
+    min-height: 10dvh;
+    max-width: 800px;
+    padding: 0 50px;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    overflow: hidden;
+}
+
+/* Gaya link di footer */
+footer a {
+    color: rgb(0, 0, 0, 0.7);
+    animation: showUp 0.7s forwards;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+footer a:nth-child(1) {
+    animation-delay: 2s;
+}
+
+footer a:nth-child(2) {
+    animation-delay: 2.2s;
+}
+
+footer a:nth-child(3) {
+    animation-delay: 2.4s;
+}
+
+footer a i {
+    font-size: 32px;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+footer a i:hover {
+    color: black;
+    margin-top: -8px;
+}
+
+.projects-section {
+    margin-top: 40px;
+  }
+  
+
+/* Animasi umum untuk elemen */
+@keyframes showUp {
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+/* Fade in animasi */
+@keyframes showFade {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Animasi slide ke kanan */
+@keyframes showRight {
+    to {
+        opacity: 1;
+        margin-left: 0px;
+    }
+}
+
+/* Animasi tinggi garis */
+@keyframes showHeight80px {
+    to {
+        height: 80px;
+    }
+}
+
+/* Animasi bouncing */
+@keyframes bouncing {
+    from {
+        transform: translateY(0px);
+    }
+
+    to {
+        transform: translateY(20px);
+    }
+}
+
+/* Animasi pergantian role text */
+@keyframes switchRole {
+    0% {
+        transform: translateY(0px);
+    }
+
+    20% {
+        transform: translateY(0px);
+    }
+
+    40% {
+        transform: translateY(-36px);
+    }
+
+    60% {
+        transform: translateY(-36px);
+    }
+
+    80% {
+        transform: translateY(-72px);
+    }
+
+    100% {
+        transform: translateY(-72px);
+    }
+}
+
+/* Tombol menu toggle */
+#menu-toggle {
+    display: none;
+}
+
+/* Ikon menu */
+.menu-icon {
+    display: none;
+}
+
+/* RESPONSIVE UNTUK LAYAR KECIL */
+@media screen and (max-width: 768px) {
+    header {
+        padding: 0 25px;
+    }
+
+    .menu-icon {
+        display: block;
+        animation: showFade 1s forwards;
+        animation-delay: 1s;
+        opacity: 0;
+    }
+
+    .menu-icon i {
+        font-size: 40px;
+        cursor: pointer;
+    }
+
+    .menu-icon .bx-x {
+        display: none;
+    }
+
+    #menu-toggle:checked+.menu-icon .bx-menu-alt-right {
+        display: none;
+    }
+
+    #menu-toggle:checked+.menu-icon .bx-x {
+        display: block;
+    }
+
+    .list-menu {
+        background: rgba(255, 255, 255, 0.7);
+        position: absolute;
+        top: 80px;
+        left: 0;
+        padding: 0 25px;
+        width: 100%;
+        flex-direction: column;
+        height: 0px;
+        border-radius: 0 0 30px 30px;
+        box-shadow: 0 20px 20px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(25px);
+        overflow: hidden;
+        transition: 0.5s ease;
+    }
+
+    #menu-toggle:checked~.list-menu {
+        height: 220px;
+        padding: 25px;
+    }
+
+    main {
+        flex-direction: column-reverse;
+        align-items: start;
+        justify-content: space-evenly;
+        padding: 0 25px;
+        padding-top: 80px;
+    }
+
+    .blob-img {
+        width: 90%;
+        height: auto;
+        position: relative;
+    }
+
+    .katon-img {
+        width: 38%;
+        height: auto;
+        position: absolute;
+        left: 58px;
+        border-radius: 180px;
+        object-fit: cover;
+    }
+
+    .projects-section .wrapper {
+        flex-wrap: wrap; /* Untuk layar kecil, biarkan elemen turun ke bawah */
+    }
+
+    footer {
+        padding: 30px 25px;
+    }
+}
